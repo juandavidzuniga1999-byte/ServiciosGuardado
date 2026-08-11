@@ -99,7 +99,7 @@ nav{
 .displayPrincipal .layer1{
   position:absolute;
   inset:0;
-  background-image: url('/images/casa3.jpg');
+  background-image: url('images/casa3.jpg');
   background-size: 100%;
   background-position: center 40%;
 }
