@@ -102,6 +102,9 @@ nav{
   background-image: url('images/casa3.jpg');
   background-size: 100%;
   background-position: center 40%;
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 .displayPrincipal .layer1::before {
   content: "";
