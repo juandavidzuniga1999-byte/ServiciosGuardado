@@ -17,43 +17,78 @@ section{padding:110px 0;}
 
 .logo{font-family:'Cormorant Garamond', serif; font-weight:600; font-size:1.6rem; letter-spacing:0.02em; color:#F3EFE7}
 
-/*------- NAV --------*/
-header{
-    position:sticky; top:0; z-index:50;
-    background:var(--negro);
-    backdrop-filter:blur(6px);
+/* ------- NAV -------- */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--negro);
 }
 
-nav{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:22px 15px; max-width:1980px; margin:0 auto;
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 15px;
+    max-width: 1980px;
+    margin: 0 auto;
 }
 
-.nav-izquierda{display: flex; align-items: center; gap:32;}
+.nav-izquierda {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
 
-.nav-links{display:flex; gap:36px; list-style:none; padding:0; margin:0; font-size:1rem; letter-spacing:0.02em; color:var(--blanco);}
+.nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+}
 
-.nav-links a{text-decoration:none; position:relative; padding-bottom:4px;}
+.nav-links a {
+    color: var(--blanco);
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 4px;
+}
 
-.nav-links a::after{content:""; position:absolute; left:0; bottom:0; width:0; height:1px; background:var(--blanco); transition:width 0.25s ease;}
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background: var(--blanco);
+    transition: width 0.25s ease;
+}
 
-.nav-links a:hover::after{width:100%;}
+.nav-links a:hover::after {
+    width: 100%;
+}
 
-.nav-cta{background:var(--negro); color:var(--blanco); font-size:0.8rem; font-weight:600; padding:11px 22px; text-decoration:none; letter-spacing:0.03em;}
+.burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
 
-.burger{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer;}
+.burger span {
+    width: 24px;
+    height: 2px;
+    background: var(--blanco);
+}
 
-.burger span{width:24px; height:2px; background:var(--blanco);}
-  @media (max-width:860px){
-    .nav-links{position:absolute; top:100%; left:0; right:0; background:var(--blanco); flex-direction:column; gap:0; max-height:0; overflow:hidden; transition:max-height 0.3s ease; border-bottom:1px solid var(--negro);}
-    .nav-links.open{max-height:320px;}
-    .nav-links li{border-top:1px solid var(--blanco);}
-    .nav-links a{display:block; padding:16px 32px;}
-    .nav-links a::after{display:none;}
-    .nav-cta{display:none;}
-    .burger{display:flex;}
-  }
-  .social-section {
+.social-section {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -79,14 +114,64 @@ nav{
 .social-icons a:hover {
   background-color: rgba(255,255,255,0.15);
 }
-.btn-contactanos {
-  background-color: var(--naranjoso);
-  color: var(--blanco);
-  font-weight: bold;
-  padding: 15px 30px;
-  text-decoration: none;
-  letter-spacing: 1px;
-  text-align: center;
+
+/* ------- CELULAR -------- */
+
+@media (max-width: 860px) {
+
+    nav {
+        position: relative;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+
+        background: var(--negro);
+
+        list-style: none;
+
+        max-height: 0;
+        overflow: hidden;
+
+        transition: max-height 0.3s ease;
+
+        z-index: 100;
+    }
+
+    .nav-links.open {
+        max-height: 300px;
+    }
+
+    .nav-links li {
+        width: 100%;
+        border-top: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .nav-links a {
+        display: block;
+        width: 100%;
+        padding: 16px 32px;
+        box-sizing: border-box;
+    }
+
+    .nav-links a::after {
+        display: none;
+    }
+
+    .social-icons {
+        display: none;
+    }
+
+    .burger {
+        display: flex;
+    }
 }
 
 /*----  DISPLAY GRANDE  ------*/
@@ -100,11 +185,9 @@ nav{
   position:absolute;
   inset:0;
   background-image: url('images/casa3.jpg');
-  background-size: 100%;
+  background-size: cover;
   background-position: center 40%;
-  max-width: 100%;
-  height: auto;
-  display: block;
+  background-repeat: no-repeat;
 }
 .displayPrincipal .layer1::before {
   content: "";
@@ -168,6 +251,20 @@ nav{
   text-transform: uppercase;
 }
 
+
+@media (max-width: 768px) {
+  .servicios {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    height: auto;
+    gap: 2px;
+  }
+
+  .servicio {
+    height: 200px;
+  }
+}
+
 /*------- Nosotros ------*/
   .about{max-width:1260px; margin-bottom:100px;margin:0 auto;}
   .about p{color:var(--blanco); font-size:1.02rem; max-width:52ch;}
@@ -199,6 +296,18 @@ nav{
 }
 .about-media {
   aspect-ratio: 4/5;
+}
+
+@media (max-width:768px){
+  .stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--blanco); 
+  border: 2px solid var(--blanco);
+  margin-bottom: 100px;
+  max-width: 300px; 
+}
 }
 
 /*-------- Contacto --------*/
@@ -291,12 +400,22 @@ padding: 80px 60px;
     height:44vh; min-height:560px;
     display:flex; align-items:flex-end;
     color:var(--negro);
+    background-size: cover;
+}
+@media(max-width:760px){
+.displayChico{
+  position:relative;
+    height:44vh; min-height:150px;
+    display:flex; align-items:flex-end;
+    color:var(--negro);
+}
 }
 .displayChico .layer1{
   position:absolute;
   inset:0;
-  background-size: 100%;
+  background-size: cover;
   background-position: center 40%;
+  background-repeat: no-repeat;
 }
 .displayChico .layer1::before {
   content: "";
@@ -307,6 +426,45 @@ padding: 80px 60px;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5); /* ajusta el 0.5 para más o menos oscuridad */
   z-index: 1;
+}
+
+/* ------- para que la galeria muestre un acercamiento a la foto */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox.activo {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 85vh;
+  object-fit: contain;
+}
+
+.lightbox-cerrar {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.galeria-item img {
+  cursor: pointer; /* para que se vea clicable */
 }
 
 
